@@ -5,6 +5,9 @@
 	max_pq = null
 	whitelist_req = FALSE
 
+/datum/outfit/job/roguetown/knight
+	id = /obj/item/scomstone/garrison
+
 /datum/advclass/knight/heavy
 	name = "Heavy Knight"
 	tutorial = "Вы тщательно тренировались и наносите удары гораздо сильнее, чем большинство искусных в обращении с массивными мечами, топорами, булавами и древками. Люди могут бояться конных рыцарей, но по-настоящему они должны бояться тех, кто соскакивает со своего коня..."
