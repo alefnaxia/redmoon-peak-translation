@@ -483,7 +483,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 				preview_subclass = null
 			// Rightmost column, 40% width
 			dat += "<td width=40% valign='top'>"
-			dat += "<h2>Тело</h2>"
+			dat += "<h2>Телесность</h2>"
 
 //			-----------START OF BODY TABLE-----------
 			dat += "<table width='100%'><tr><td width='1%' valign='top'>"
