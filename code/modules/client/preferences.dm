@@ -1530,13 +1530,13 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 							to_chat(user, "<font color='red'>Неверное имя. Длина имени должна быть не менее 2 и не более [MAX_NAME_LEN] символов. Оно может содержать только символы A-Z, a-z, -, ', . and ,.</font>")
 
 				if("nickname")
-					var/new_name = tgui_input_text(user, "Выберите прозвище вашего персонажа (Для подсветки):", "NICKNAME",  encode = FALSE)
+					var/new_name = tgui_input_text(user, "Выберите прозвище вашего персонажа (Для подсветки):", "ПРОЗВИЩЕ",  encode = FALSE)
 					if(new_name)
 						new_name = reject_bad_name(new_name)
 						if(new_name)
 							nickname = new_name
 						else
-							to_chat(user, "<font color='red'>Неверное имя. Длина имени должна быть не менее 2 и не более [MAX_NAME_LEN] символов. Оно может содержать только символы A-Z, a-z, -, ', . and ,.</font>")
+							to_chat(user, "<font color='red'>Неверное прозвище. Длина прозвища должна быть не менее 2 и не более [MAX_NAME_LEN] символов. Оно может содержать только символы A-Z, a-z, -, ', . and ,.</font>")
 
 				if("subclassoutfit")
 					var/list/choices = list("None")
@@ -1661,7 +1661,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 					var/faith_input = tgui_input_list(user, "Мир разлагается. Во что тебе остаётся верить?", "ВЕРА", faiths_named) 
 					if(faith_input)
 						var/datum/faith/faith = faiths_named[faith_input]
-						to_chat(user, "<font color='yellow'>Вера: [faith.translated_name]</font>") 				// ! REDMOON
+						to_chat(user, "<font color='yellow'>Верование: [faith.translated_name]</font>") 				// ! REDMOON
 						to_chat(user, "Описание: [faith.desc]") 												// ! REDMOON
 						to_chat(user, "<font color='red'>Последователи: [faith.worshippers]</font>")			// ! REDMOON	
 						selected_patron = GLOB.patronlist[faith.godhead] || GLOB.patronlist[pick(GLOB.patrons_by_faith[faith_input])]
@@ -1686,7 +1686,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 						to_chat(user, span_notice("<span class='bold'>Боевая музыка</span>\n") + \
 						"Варианты, отличные от \"Default\" заменяют музыку, что игра динамически выбирает, \
 						исходя из твоего класса, статуса злодея или иных вещей.\n\
-						Вы можете изменить это позже в \"Combat Mode Music\" во вкладке Options.\</span>")
+						Вы можете изменить это позже в \"Combat Mode Music\" во вкладке Options.")
 						combat_music_helptext_shown = TRUE
 					var/track_select = tgui_input_list(user, "Для вас в бою будет звучать это:", "МУЗЫКА В БОЮ", GLOB.cmode_tracks_by_name, combat_music?.name)
 					if(track_select)
@@ -1820,7 +1820,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 					popup.open(FALSE)
 				if("formathelp")
 					var/list/dat = list()
-					dat +="Вы можете использовать слэши (\\) чтобы избежать избежать активации специальных символов.<br>"
+					dat +="Вы можете использовать слэши (\) чтобы избежать избежать активации специальных символов, приведённых ниже:<br>"
 					dat += "<br>"
 					dat += "# текст : Определяет заголовок.<br>"
 					dat += "|текст| : Центрирует текст.<br>"
@@ -2499,7 +2499,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 					if(defiant)
 						to_chat(user, span_notice("Теперь вы будете сопротивляться, если кто-то захочет взять вас силой."))
 					else
-						to_chat(user, span_boldwarning("Вы полностью отдаётесь мраку этого мира, отказываясь от сопротивления людям, что домогаются до вас"))
+						to_chat(user, span_boldwarning("Вы полностью отдаётесь мраку этого мира, отказываясь от сопротивления людям, что домогаются до вас."))
 
 				if("schizo_voice")
 					toggles ^= SCHIZO_VOICE
