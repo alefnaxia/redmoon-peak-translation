@@ -1160,7 +1160,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 	if(user.client?.prefs)
 		if(!user.client.prefs.lastclass)
 			return
-	var/choice = tgalert(user, "потратить 2 триумфа чтобы сыграть за этот класс снова?", "Сбросить", "Сделать это", "Отмена")
+	var/choice = tgalert(user, "Потратить 2 триумфа, чтобы сыграть за этот класс снова?", "Сбросить", "Сделать это", "Отмена")
 	if(choice == "Отмена")
 		return
 	if(!choice)
@@ -1195,7 +1195,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 		for (var/i in kb_categories[category])
 			var/datum/keybinding/kb = i
 			if(!length(user_binds[kb.name]))
-				dat += "<label>[kb.full_name]</label> <a href ='?_src_=prefs;preference=keybinds;task=keybindings_capture;keybinding=[kb.name];old_key=["Unbound"]'>Не выставлено</a>"
+				dat += "<label>[kb.full_name]</label> <a href ='?_src_=prefs;preference=keybinds;task=keybindings_capture;keybinding=[kb.name];old_key=["Unbound"]'>Не выставлена</a>"
 //						var/list/default_keys = hotkeys ? kb.hotkey_keys : kb.classic_keys
 //						if(LAZYLEN(default_keys))
 //							dat += "| Default: [default_keys.Join(", ")]"
@@ -1207,7 +1207,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 					bound_key = user_binds[kb.name][bound_key_index]
 					dat += " | <a href ='?_src_=prefs;preference=keybinds;task=keybindings_capture;keybinding=[kb.name];old_key=[bound_key]'>[bound_key]</a>"
 				if(length(user_binds[kb.name]) < MAX_KEYS_PER_KEYBIND)
-					dat += "| <a href ='?_src_=prefs;preference=keybinds;task=keybindings_capture;keybinding=[kb.name]'>Добавить вторую</a>"
+					dat += "| <a href ='?_src_=prefs;preference=keybinds;task=keybindings_capture;keybinding=[kb.name]'>Добавить новую</a>"
 				dat += "<br>"
 
 	dat += "<br><br>"
@@ -1432,11 +1432,11 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 				SetKeybinds(user)
 
 			if("keybindings_reset")
-				var/choice = tgalert(user, "Вы правда хотите сбросить горячие клавиши?", "Сброс горячих клавиш", "Сделать это", "Отмена")
+				var/choice = tgalert(user, "Вы правда хотите сбросить горячие клавиши?", "Сброс горячих клавиш", "Сбросить", "Отмена")
 				if(choice == "Отмена")
 					ShowChoices(user,3)
 					return
-				hotkeys = (choice == "Сделать это")
+				hotkeys = (choice == "Сбросить")
 				key_bindings = (hotkeys) ? deepCopyList(GLOB.hotkey_keybinding_list_by_key) : deepCopyList(GLOB.classic_keybinding_list_by_key)
 				user.client.update_movement_keys()
 				SetKeybinds(user)
