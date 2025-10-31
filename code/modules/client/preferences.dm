@@ -1160,8 +1160,8 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 	if(user.client?.prefs)
 		if(!user.client.prefs.lastclass)
 			return
-	var/choice = tgalert(user, "потратить 2 триумфа чтобы сыграть за этот класс снова?", "Сбросить", "Сделать это", "Отменить")
-	if(choice == "Cancel")
+	var/choice = tgalert(user, "потратить 2 триумфа чтобы сыграть за этот класс снова?", "Сбросить", "Сделать это", "Отмена")
+	if(choice == "Отмена")
 		return
 	if(!choice)
 		return
@@ -1433,10 +1433,10 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 
 			if("keybindings_reset")
 				var/choice = tgalert(user, "Вы правда хотите сбросить горячие клавиши?", "Сброс горячих клавиш", "Сделать это", "Отмена")
-				if(choice == "Cancel")
+				if(choice == "Отмена")
 					ShowChoices(user,3)
 					return
-				hotkeys = (choice == "Do It")
+				hotkeys = (choice == "Сделать это")
 				key_bindings = (hotkeys) ? deepCopyList(GLOB.hotkey_keybinding_list_by_key) : deepCopyList(GLOB.classic_keybinding_list_by_key)
 				user.client.update_movement_keys()
 				SetKeybinds(user)
@@ -2374,8 +2374,8 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 					save_preferences()
 
 				if("keybindings_reset")
-					var/choice = tgalert(user, "Would you prefer 'hotkey' or 'classic' defaults?", "Setup keybindings", "Hotkey", "Classic", "Cancel")
-					if(choice == "Cancel")
+					var/choice = tgalert(user, "Would you prefer 'hotkey' or 'classic' defaults?", "Setup keybindings", "Hotkey", "Classic", "Отмена")
+					if(choice == "Отмена")
 						ShowChoices(user)
 						return
 					hotkeys = (choice == "Hotkey")
