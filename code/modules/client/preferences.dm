@@ -2003,7 +2003,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 							continue
 						loadouts_available[loadout.name] = loadout
 
-					var/loadout_input = tgui_input_list(user, "Выберите персональные предметы персонажа. В игре нажмите ПКМ на дерево, статую или часы. ВЫ НЕ ПОЯВЛЯЕТЕСЬ С ЭТИМ. ВЫ ДОЛЖНЫ ЗАБРАТЬ СВОИ ВЕЩИ!!!", "Вещи из ДЕРЕВЬЕВ, СТАТУЙ И ЧАСОВ", loadouts_available) 
+					var/loadout_input = tgui_input_list(user, "Выберите персональные предметы персонажа, не зависящие от его класса. Вы не появляетесь с этим! Чтобы забрать их, нажмите ПКМ на дерево, статую или часы!!!", "Личная вещь I", loadouts_available) 
 					if(loadout_input)
 						if(loadout_input == "None")
 							loadout = null
@@ -2024,7 +2024,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 							continue
 						loadouts_available[loadout2.name] = loadout2
 
-					var/loadout_input2 = tgui_input_list(user, "Выберите персональные предметы персонажа. В игре нажмите ПКМ на дерево, статую или часы. ВЫ НЕ ПОЯВЛЯЕТЕСЬ С ЭТИМ. ВЫ ДОЛЖНЫ ЗАБРАТЬ СВОИ ВЕЩИ!!!", "Вещи из ДЕРЕВЬЕВ, СТАТУЙ И ЧАСОВ", loadouts_available) 
+					var/loadout_input2 = tgui_input_list(user, "Выберите персональные предметы персонажа, не зависящие от его класса. Вы не появляетесь с этим! Чтобы забрать их, нажмите ПКМ на дерево, статую или часы!!!", "Личная вещь II", loadouts_available) 
 					if(loadout_input2)
 						if(loadout_input2 == "None")
 							loadout2 = null
@@ -2045,7 +2045,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 							continue
 						loadouts_available[loadout3.name] = loadout3
 
-					var/loadout_input3 = tgui_input_list(user, "Выберите персональные предметы персонажа. В игре нажмите ПКМ на дерево, статую или часы. ВЫ НЕ ПОЯВЛЯЕТЕСЬ С ЭТИМ. ВЫ ДОЛЖНЫ ЗАБРАТЬ СВОИ ВЕЩИ!!!", "Вещи из ДЕРЕВЬЕВ, СТАТУЙ И ЧАСОВ", loadouts_available) 
+					var/loadout_input3 = tgui_input_list(user, "Выберите персональные предметы персонажа, не зависящие от его класса. Вы не появляетесь с этим! Чтобы забрать их, нажмите ПКМ на дерево, статую или часы!!!", "Личная вещь III", loadouts_available) 
 					if(loadout_input3)
 						if(loadout_input3 == "None")
 							loadout3 = null
