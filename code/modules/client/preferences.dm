@@ -768,7 +768,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 						dat += "<br>"
 
 			dat += "<br><br>"
-			dat += "<a href ='?_src_=prefs;preference=keybinds;task=keybindings_set'>\[Сбросить к значениям по умолчанию\]</a>"
+			dat += "<a href ='?_src_=prefs;preference=keybinds;task=keybindings_set'>\[ к значениям по умолчанию\]</a>"
 			dat += "</body>"
 
 
@@ -812,7 +812,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	dat += "</td>"
 	dat += "</tr>"
 	dat += "</table>"
-//	dat += "<a href='?_src_=prefs;preference=reset_all'>Сбросить настройки</a>"
+//	dat += "<a href='?_src_=prefs;preference=reset_all'> настройки</a>"
 
 
 	if(user.client.is_new_player())
@@ -1090,7 +1090,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 			HTML += "<center><a href='?_src_=prefs;preference=job;task=triumphthing'>ПОИГРАЙТЕ ЗА [user.client.prefs.lastclass] СНОВА</a></center>"
 		else
 			HTML += "<br>"
-		HTML += "<center><a href='?_src_=prefs;preference=job;task=reset'>Сбросить</a></center>"
+		HTML += "<center><a href='?_src_=prefs;preference=job;task=reset'></a></center>"
 
 	var/datum/browser/noclose/popup = new(user, "mob_occupation", "<div align='center'>Выбор класса</div>", width, height)
 	popup.set_window_options("can_close=0")
@@ -1160,7 +1160,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 	if(user.client?.prefs)
 		if(!user.client.prefs.lastclass)
 			return
-	var/choice = tgalert(user, "Потратить 2 триумфа, чтобы сыграть за этот класс снова?", "Сбросить", "Сделать это", "Отмена")
+	var/choice = tgalert(user, "Потратить 2 триумфа, чтобы сыграть за этот класс снова?", "Сбросить класс", "Сделать это", "Отмена")
 	if(choice == "Отмена")
 		return
 	if(!choice)
@@ -1432,11 +1432,11 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 				SetKeybinds(user)
 
 			if("keybindings_reset")
-				var/choice = tgalert(user, "Вы правда хотите сбросить горячие клавиши?", "Сброс горячих клавиш", "Сбросить", "Отмена")
-				if(choice == "Отмена")
+				var/choice = tgalert(user, "Do you really want to reset your keybindings?", "Setup keybindings", "Do It", "Cancel")
+				if(choice == "Cancel")
 					ShowChoices(user,3)
 					return
-				hotkeys = (choice == "Сбросить")
+				hotkeys = (choice == "Do It")
 				key_bindings = (hotkeys) ? deepCopyList(GLOB.hotkey_keybinding_list_by_key) : deepCopyList(GLOB.classic_keybinding_list_by_key)
 				user.client.update_movement_keys()
 				SetKeybinds(user)
