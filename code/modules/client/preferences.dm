@@ -768,7 +768,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 						dat += "<br>"
 
 			dat += "<br><br>"
-			dat += "<a href ='?_src_=prefs;preference=keybinds;task=keybindings_set'>\[ к значениям по умолчанию\]</a>"
+			dat += "<a href ='?_src_=prefs;preference=keybinds;task=keybindings_set'>\[Вернуться к значениям по умолчанию\]</a>"
 			dat += "</body>"
 
 
@@ -1090,7 +1090,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 			HTML += "<center><a href='?_src_=prefs;preference=job;task=triumphthing'>ПОИГРАЙТЕ ЗА [user.client.prefs.lastclass] СНОВА</a></center>"
 		else
 			HTML += "<br>"
-		HTML += "<center><a href='?_src_=prefs;preference=job;task=reset'></a></center>"
+		HTML += "<center><a href='?_src_=prefs;preference=job;task=reset'>Сброс</a></center>"
 
 	var/datum/browser/noclose/popup = new(user, "mob_occupation", "<div align='center'>Выбор класса</div>", width, height)
 	popup.set_window_options("can_close=0")
@@ -1211,7 +1211,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 				dat += "<br>"
 
 	dat += "<br><br>"
-	dat += "<a href ='?_src_=prefs;preference=keybinds;task=keybindings_reset'>\[Сбросить к значениям по умолчанию\]</a>"
+	dat += "<a href ='?_src_=prefs;preference=keybinds;task=keybindings_reset'>\[Вернуться к значениям по умолчанию\]</a>"
 	dat += "</body>"
 
 	var/datum/browser/noclose/popup = new(user, "keybind_setup", "<div align='center'>Горячие клавиши</div>", 600, 600) //no reason not to reuse the occupation window, as it's cleaner that way
@@ -1432,11 +1432,11 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 				SetKeybinds(user)
 
 			if("keybindings_reset")
-				var/choice = tgalert(user, "Do you really want to reset your keybindings?", "Setup keybindings", "Do It", "Cancel")
-				if(choice == "Cancel")
+				var/choice = tgalert(user, "Вы правда хотите сбросить горячие клавиши?", "Сброс горячих клавиш", "Подтвердить", "Отмена")
+				if(choice == "Отмена")
 					ShowChoices(user,3)
 					return
-				hotkeys = (choice == "Do It")
+				hotkeys = (choice == "Подтвердить")
 				key_bindings = (hotkeys) ? deepCopyList(GLOB.hotkey_keybinding_list_by_key) : deepCopyList(GLOB.classic_keybinding_list_by_key)
 				user.client.update_movement_keys()
 				SetKeybinds(user)
