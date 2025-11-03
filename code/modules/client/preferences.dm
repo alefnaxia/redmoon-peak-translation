@@ -2374,11 +2374,11 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 					save_preferences()
 
 				if("keybindings_reset")
-					var/choice = tgalert(user, "Would you prefer 'hotkey' or 'classic' defaults?", "Setup keybindings", "Hotkey", "Classic", "Отмена")
+					var/choice = tgalert(user, "Вы хотите сброс до 'обычных' или 'классических' горячих клавиш?", "Настройка сброса", "Обычные", "Классические", "Отмена")
 					if(choice == "Отмена")
 						ShowChoices(user)
 						return
-					hotkeys = (choice == "Hotkey")
+					hotkeys = (choice == "Обычные")
 					key_bindings = (hotkeys) ? deepCopyList(GLOB.hotkey_keybinding_list_by_key) : deepCopyList(GLOB.classic_keybinding_list_by_key)
 					user.client.update_movement_keys()
 				if("chat_on_map")
@@ -2774,8 +2774,8 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 
 /// Resets the client's keybindings. Asks them for which
 /datum/preferences/proc/force_reset_keybindings()
-	var/choice = tgalert(parent.mob, "Your basic keybindings need to be reset, the custom keybinds you've set will remain. Would you prefer 'hotkey' or 'classic TG' mode? DO NOT CLICK CLASSIC UNLESS YOU KNOW WHAT YOU'RE DOING.", "Reset keybindings", "Hotkey", "Classic")
-	hotkeys = (choice != "Classic")
+	var/choice = tgalert(parent.mob, "Необходимо сбросить базовые горячие клавиши. Установленные вами останутся без изменений. Вы хотите сброс до 'обычных' или 'классических' (TG) горячих клавиш? Не выбирайте классические, если не знаете что это.", "Сброс горячих клавиш", "Обычные", "Классические")
+	hotkeys = (choice != "Классические")
 	force_reset_keybindings_direct(hotkeys)
 
 /// Does the actual reset
