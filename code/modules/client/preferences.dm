@@ -802,7 +802,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 			dat += "<br><a href='?_src_=prefs;preference=manifest'>ДЕЙСТВУЮЩИЕ ЛИЦА</a>"
 			dat += "<br><a href='?_src_=prefs;preference=observe'>НАБЛЮДАТЬ</a>"
 	else
-		dat += "<a href='?_src_=prefs;preference=finished'>СДЕЛАНО</a>"
+		dat += "<a href='?_src_=prefs;preference=finished'>ГОТОВО</a>"
 
 	dat += "</td>"
 	dat += "<td width='33%' align='right'>"
@@ -2200,22 +2200,22 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 							to_chat(user, span_info("[charflaw.desc]"))
 
 				if("char_accent")
-					var/selectedaccent = tgui_input_list(user, "Choose your character's accent:", "Настройки персонажа", GLOB.character_accents)
+					var/selectedaccent = tgui_input_list(user, "Выберите акцент персонажа:", "Настройки персонажа", GLOB.character_accents)
 					if(selectedaccent)
 						char_accent = selectedaccent
 
 				if("ooccolor")
-					var/new_ooccolor = color_pick_sanitized(user, "Choose your OOC colour:", "Настройки персонажа",ooccolor)
+					var/new_ooccolor = color_pick_sanitized(user, "Выберите ваш цвет ООС:", "Настройки персонажа",ooccolor)
 					if(new_ooccolor)
 						ooccolor = new_ooccolor
 
 				if("asaycolor")
-					var/new_asaycolor = color_pick_sanitized(user, "Choose your ASAY color:", "Настройки персонажа",asaycolor)
+					var/new_asaycolor = color_pick_sanitized(user, "Выберите ваш цвет ASAY:", "Настройки персонажа",asaycolor)
 					if(new_asaycolor)
 						asaycolor = new_asaycolor
 
 				if("bag")
-					var/new_backpack = input(user, "Choose your character's style of bag:", "Character Preference")  as null|anything in GLOB.backpacklist
+					var/new_backpack = input(user, "Выберите тип вашей торбы:", "Character Preference")  as null|anything in GLOB.backpacklist
 					if(new_backpack)
 						backpack = new_backpack
 
