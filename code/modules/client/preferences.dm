@@ -798,9 +798,9 @@ GLOBAL_LIST_EMPTY(chosen_names)
 				dat += "<a href='byond://?src=[REF(N)];late_join=1'>ПРИСОЕДИНИТЬСЯ</a>"
 			else
 				dat += "<a class='linkOff' href='byond://?src=[REF(N)];late_join=1'>ПРИСОЕДИНИТЬСЯ</a>"
-			dat += " - <a href='?_src_=prefs;preference=migrants'>ПЕРЕСЕЛЕНИЕ</a>"
+			dat += "<br><a href='?_src_=prefs;preference=migrants'>ПЕРЕСЕЛЕНИЕ</a>"
 			dat += "<br><a href='?_src_=prefs;preference=manifest'>ДЕЙСТВУЮЩИЕ ЛИЦА</a>"
-			dat += " - <a href='?_src_=prefs;preference=observe'>НАБЛЮДАТЬ</a>"
+			dat += "<br><a href='?_src_=prefs;preference=observe'>НАБЛЮДАТЬ</a>"
 	else
 		dat += "<a href='?_src_=prefs;preference=finished'>СДЕЛАНО</a>"
 
