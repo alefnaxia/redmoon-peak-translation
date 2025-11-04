@@ -136,6 +136,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	var/masked_examine = FALSE
 	var/mute_animal_emotes = FALSE
 	var/autoconsume = FALSE
+	var/no_examine_blocks = FALSE
 
 	var/lastclass
 
@@ -157,7 +158,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	var/static/default_cmusic_type = /datum/combat_music/default
 	var/datum/combat_music/combat_music
 	var/combat_music_helptext_shown = FALSE
-	
+
 	var/family = FAMILY_NONE
 
 	var/crt = FALSE
@@ -191,7 +192,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	var/erpprefs
 
 	var/list/img_gallery = list()
-	
+
 	var/datum/familiar_prefs/familiar_prefs
 
 	var/taur_type = null
@@ -977,7 +978,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 			if(!(job_unavailable in acceptable_unavailables))
 				HTML += "<font color=#a36c63>[used_name]</font></td> <td> </td></tr>"
 				continue
-			
+
 			var/job_display = used_name
 			//job_display += " <a href='?src=[REF(job)];explainjob=1'>{?}</a></span>"
 //			if((job_preferences[SSjob.overflow_role] == JP_LOW) && (rank != SSjob.overflow_role) && !is_banned_from(user.ckey, SSjob.overflow_role))
@@ -1566,7 +1567,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 //						age = max(min( round(text2num(new_age)), AGE_MAX),AGE_MIN)
 
 				if("age")
-					var/new_age = tgui_input_list(user, "Выберите возрастной этап персонажа (в рамках 18-[pref_species.max_age] лет)", "ВИЖу НО МЕДлю", pref_species.possible_ages) 
+					var/new_age = tgui_input_list(user, "Выберите возрастной этап персонажа (в рамках 18-[pref_species.max_age] лет)", "ПРОЖИТЫЕ ГОДЫ", pref_species.possible_ages) 
 					if(new_age)
 						age = new_age
 						var/list/hairs
@@ -1751,7 +1752,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 					var/static/list/selectable_languages = list(
 						/datum/language/elvish,
 						/datum/language/dwarvish,
-						/datum/language/orcish, 
+						/datum/language/orcish,
 						/datum/language/hellspeak,
 						/datum/language/draconic,
 						/datum/language/celestial,
@@ -2686,7 +2687,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 	character.statpack = statpack
 
 	character.flavortext = flavortext
-	
+
 	character.ooc_notes = ooc_notes
 
 	character.nsfwflavortext = nsfwflavortext
@@ -2727,7 +2728,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 
 	if(icon_updates)
 		character.update_body()
-		character.update_hair() 
+		character.update_hair()
 		character.update_body_parts(redraw = TRUE)
 
 	character.char_accent = char_accent
@@ -2794,7 +2795,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 		reset_all_customizer_accessory_colors()
 
 /proc/valid_headshot_link(mob/user, value, silent = FALSE, list/valid_extensions = list("jpg", "png", "jpeg"))
-	var/static/link_regex = regex("i.gyazo.com|a.l3n.co|b.l3n.co|c.l3n.co|images2.imgbox.com|thumbs2.imgbox.com|files.catbox.moe") //gyazo, discord, lensdump, imgbox, catbox
+	var/static/link_regex = regex(@"i\.gyazo.com|.\.l3n\.co|images2\.imgbox\.com|thumbs2\.imgbox\.com|files\.catbox\.moe") //gyazo, discord, lensdump, imgbox, catbox
 
 	if(!length(value))
 		return FALSE
