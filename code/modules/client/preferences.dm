@@ -1522,7 +1522,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 							ghost_others = GHOST_OTHERS_SIMPLE
 
 				if("name")
-					var/new_name = tgui_input_text(user, "Имя этой оболочки?", "ИДЕНТИЧНОСТЬ", encode = FALSE)
+					var/new_name = tgui_input_text(user, "Имя этой оболочки?", "ИМЕНОВАНИЕ", encode = FALSE)
 					if(new_name)
 						new_name = reject_bad_name(new_name)
 						if(new_name)
@@ -1531,7 +1531,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 							to_chat(user, "<font color='red'>Неверное имя. Длина имени должна быть не менее 2 и не более [MAX_NAME_LEN] символов. Оно может содержать только символы A-Z, a-z, -, ', . and ,.</font>")
 
 				if("nickname")
-					var/new_name = tgui_input_text(user, "Выберите прозвище вашего персонажа (Для подсветки):", "ПРОЗВИЩЕ",  encode = FALSE)
+					var/new_name = tgui_input_text(user, "Выберите прозвище вашего персонажа (Для подсветки):", "СЛОВЕСНОЕ КЛЕЙМО",  encode = FALSE)
 					if(new_name)
 						new_name = reject_bad_name(new_name)
 						if(new_name)
@@ -1567,7 +1567,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 //						age = max(min( round(text2num(new_age)), AGE_MAX),AGE_MIN)
 
 				if("age")
-					var/new_age = tgui_input_list(user, "Выберите возрастной этап персонажа (в рамках 18-[pref_species.max_age] лет)", "ПРОЖИТЫЕ ГОДЫ", pref_species.possible_ages) 
+					var/new_age = tgui_input_list(user, "Выберите возрастной этап персонажа (в рамках 18-[pref_species.max_age] лет)", "ИСТРАЧЕННЫЕ ЛЕТА", pref_species.possible_ages) 
 					if(new_age)
 						age = new_age
 						var/list/hairs
@@ -1603,7 +1603,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 
 					statpacks_available = sort_list(statpacks_available)
 
-					var/statpack_input = tgui_input_list(user, "Как проявляются ваши качества?", "АТРИБУТЫ", statpacks_available, statpack)
+					var/statpack_input = tgui_input_list(user, "Как проявляются ваши качества?", "ПЛОТЬ И СЕРДЦЕ", statpacks_available, statpack)
 					if (statpack_input)
 						var/datum/statpack/statpack_chosen = statpacks_available[statpack_input]
 						statpack = statpack_chosen
@@ -1615,7 +1615,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 							to_chat(user, span_info("Ваша добродетель была удалена из-за принятия взаимоисключающего набора атрибутов.")) */
 				// LETHALSTONE EDIT: add pronouns
 				if ("pronouns")
-					var pronouns_input = tgui_input_list(user, "Выберите местоимения вашего персонажа", "МЕСТОИМЕНИЯ", GLOB.pronouns_list)
+					var pronouns_input = tgui_input_list(user, "Выберите местоимения вашего персонажа", "ПОДМЕНА ОБРАЩЕНИЙ", GLOB.pronouns_list)
 					if(pronouns_input)
 						pronouns = pronouns_input
 						ResetJobs()
@@ -1624,7 +1624,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 
 				// LETHALSTONE EDIT: add voice type selection
 				if ("voicetype")
-					var voicetype_input = tgui_input_list(user, "Выберите тип голоса для персонажа", "ТИП ГОЛОСА", GLOB.voice_types_list) 
+					var voicetype_input = tgui_input_list(user, "Выберите тип голоса для персонажа", "ПОРОДА ГЛАСА", GLOB.voice_types_list) 
 					if(voicetype_input)
 						voice_type = voicetype_input
 						to_chat(user, "<font color='red'>Ваш персонаж теперь будет звучать как [lowertext(voice_type)] affect.</font>")
@@ -1689,7 +1689,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 						исходя из твоего класса, статуса злодея или иных вещей.\n\
 						Вы можете изменить это позже в \"Combat Mode Music\" во вкладке Options.")
 						combat_music_helptext_shown = TRUE
-					var/track_select = tgui_input_list(user, "Для вас в бою будет звучать это:", "МУЗЫКА В БОЮ", GLOB.cmode_tracks_by_name, combat_music?.name)
+					var/track_select = tgui_input_list(user, "Для вас в бою будет звучать это:", "МЕЛОДИЯ БОЙНИ", GLOB.cmode_tracks_by_name, combat_music?.name)
 					if(track_select)
 						combat_music = GLOB.cmode_tracks_by_name[track_select]
 						to_chat(user, span_notice("Selected track: <b>[track_select]</b>."))
@@ -1770,7 +1770,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 						var/datum/language/a_language = new language()
 						choices[a_language.name] = language
 
-					var/chosen_language = tgui_input_list(user, "Можете выбрать язык, который персонаж знает помимо основных:", "ДОПОЛНИТЕЛЬНЫЙ ЯЗЫК", choices)
+					var/chosen_language = tgui_input_list(user, "Можете выбрать язык, который персонаж знает помимо основных:", "НЕЕСТЕСТВЕННОЕ НАРЕЧИЕ", choices)
 					if(chosen_language)
 						if(chosen_language == "None")
 							extra_language = "Выбрать"
@@ -1794,7 +1794,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 					to_chat(user, "<span class='notice'>Пожалуйста, используйте неэротические изображение области головы и плеч, чтобы сохранить погружение. ["<span class='bold'>Не используйте реальные фотографии или шуточные изображения.</span>"]</span>")
 					to_chat(user, "<span class='notice'>Если фотография не отображается в игре должным образом, убедитесь, что это ссылка на изображение, которая корректно открывается в браузере.</span>")
 					to_chat(user, "<span class='notice'>Имейте в виду, что фотография будет уменьшена до размера 325x325 пикселей, поэтому чем более квадратной будет картинка, тем лучше она будет выглядеть.</span>")
-					var/new_headshot_link = tgui_input_text(user, "Вставьте ссылку на изображение (https, хосты: gyazo, e621, iBB.co):", "Портрет", headshot_link,  encode = FALSE)
+					var/new_headshot_link = tgui_input_text(user, "Вставьте ссылку на изображение (https, хосты: gyazo, e621, iBB.co):", "ЛИК ГРЕШНИКА", headshot_link,  encode = FALSE)
 					if(new_headshot_link == null)
 						return
 					if(new_headshot_link == "")
@@ -1839,7 +1839,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 					popup.open(FALSE)
 				if("flavortext")
 					to_chat(user, "<span class='notice'>["<span class='bold'>Описание не должно содержать ничего нематериального и недоступного восприятию других, например, предысторию или мысли персонажа.</span>"]</span>")
-					var/new_flavortext = tgui_input_text(user, "Введите описание вашего персонажа:", "Описание", flavortext, multiline = TRUE,  encode = FALSE, bigmodal = TRUE)
+					var/new_flavortext = tgui_input_text(user, "Введите внешнее описание персонажа:", "ПОВЕРХНОСТНЫЙ ОБЛИК", flavortext, multiline = TRUE,  encode = FALSE, bigmodal = TRUE)
 					if(new_flavortext == null)
 						return
 					if(new_flavortext == "")
@@ -1851,7 +1851,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 					log_game("[user] установил/а своё описание'.")
 				if("ooc_notes")
 					to_chat(user, "<span class='notice'>["<span class='bold'>OOC заметки - внеигровые. Их следует использовать для обозначения ожиданий от игры в целом и общей информации о вашем подходе к отыгрышу, притязаниях к персонажам и т.д.</span>"]</span>")
-					var/new_ooc_notes = tgui_input_text(user, "Введите ваши OOC примечания:", "OOC заметки", ooc_notes, multiline = TRUE,  encode = FALSE, bigmodal = TRUE)
+					var/new_ooc_notes = tgui_input_text(user, "Напишите внеигровые примечания:", "OOC заметки", ooc_notes, multiline = TRUE,  encode = FALSE, bigmodal = TRUE)
 					if(new_ooc_notes == null)
 						return
 					if(new_ooc_notes == "")
@@ -1864,7 +1864,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 				if("nsfwflavortext")
 					to_chat(user, "<span class='notice'>["<span class='bold'>Откровенное описание можно использовать для описания голого тела и других деталей, которые могут быть сочтены пикантными.</span>"]</span>")
 					to_chat(user, "<font color = '#d6d6d6'>Оставьте пустым, чтобы очистить.</font>")
-					var/new_nsfwflavortext = tgui_input_text(user, "Введите описание вашего персонажа:", "Откровенное описание", nsfwflavortext, multiline = TRUE,  encode = FALSE, bigmodal = TRUE)
+					var/new_nsfwflavortext = tgui_input_text(user, "Введите описание обнажённого персонажа:", "ОТКРОВЕННАЯ НАРУЖНОСТЬ", nsfwflavortext, multiline = TRUE,  encode = FALSE, bigmodal = TRUE)
 					if(new_nsfwflavortext == null)
 						return
 					if(new_nsfwflavortext == "")
@@ -1879,7 +1879,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 				if("erpprefs")
 					to_chat(user, "<span class='notice'>["<span class='bold'>Вкусы в эротическом отыгрыше. Если вы укажете здесь «всё разрешено» или «делайте что хотите», то не жалуйтесь, если люди воспользуются этим.</span>"]</span>")
 					to_chat(user, "<font color = '#d6d6d6'>Оставьте пустым, чтобы очистить.</font>")
-					var/new_erpprefs = tgui_input_text(user, "Напишите свои предпочтения:", "ERP пристрастия", erpprefs, multiline = TRUE,  encode = FALSE, bigmodal = TRUE)
+					var/new_erpprefs = tgui_input_text(user, "Опишите свои эротические предпочтения:", "СЛАСТОЛЮБИЕ", erpprefs, multiline = TRUE,  encode = FALSE, bigmodal = TRUE)
 					if(new_erpprefs == null)
 						return
 					if(new_erpprefs == "")
@@ -2186,7 +2186,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 */
 				if("s_tone")
 					var/listy = pref_species.get_skin_list()
-					var/new_s_tone = tgui_input_list(user, "Выберите происхождение и цвет кожи персонажа:", "Племенная принадлежность", listy)
+					var/new_s_tone = tgui_input_list(user, "Выберите происхождение и цвет кожи персонажа:", "БРЕМЯ НАСЛЕДИЯ", listy)
 					if(new_s_tone)
 						skin_tone = listy[new_s_tone]
 						try_update_mutant_colors()
