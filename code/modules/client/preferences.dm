@@ -546,19 +546,19 @@ GLOBAL_LIST_EMPTY(chosen_names)
 			if (loadout_1_hex)
 				dat += "<a href='?_src_=prefs;preference=loadout1hex;task=input'> <span style='border: 1px solid #161616; background-color: [loadout_1_hex ? loadout_1_hex : "#FFFFFF"];'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a>"
 			else
-				dat += "<a href='?_src_=prefs;preference=loadout1hex;task=input'>(У)</a>"
+				dat += "<a href='?_src_=prefs;preference=loadout1hex;task=input'>(Ц)</a>"
 
 			dat += "<br><b>Персональный предмет II:</b> <a href='?_src_=prefs;preference=loadout_item2;task=input'>[loadout2 ? loadout2.name : "Выбрать"] </a>"
 			if (loadout_2_hex)
 				dat += "<a href='?_src_=prefs;preference=loadout2hex;task=input'> <span style='border: 1px solid #161616; background-color: [loadout_2_hex ? loadout_2_hex : "#FFFFFF"];'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a>"
 			else
-				dat += "<a href='?_src_=prefs;preference=loadout2hex;task=input'>(У)</a>"
+				dat += "<a href='?_src_=prefs;preference=loadout2hex;task=input'>(Ц)</a>"
 
 			dat += "<br><b>Персональный предмет III:</b> <a href='?_src_=prefs;preference=loadout_item3;task=input'>[loadout3 ? loadout3.name : "Выбрать"]</a>"
 			if (loadout_3_hex)
 				dat += "<a href='?_src_=prefs;preference=loadout3hex;task=input'><span style='border: 1px solid #161616; background-color: [loadout_3_hex ? loadout_3_hex : "#FFFFFF"];'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a>"
 			else
-				dat += "<a href='?_src_=prefs;preference=loadout3hex;task=input'>(У)</a>"
+				dat += "<a href='?_src_=prefs;preference=loadout3hex;task=input'>(Ц)</a>"
 			dat += "</td>"
 
 			dat += "</tr></table>"
