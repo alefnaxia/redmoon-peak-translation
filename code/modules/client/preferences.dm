@@ -2621,7 +2621,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 								if(!name)
 									name = "Slot[i]"
 								choices[name] = i
-					var/choice = tgui_input_list(user, "ВЫБЕРИТЕ ГЕРОЯ","ПУНЦЕГРАД", choices)
+					var/choice = tgui_input_list(user, "ВЫБЕРИТЕ ГЕРОЯ","АЛОЗОРЦЫ", choices)
 					if(choice)
 						choice = choices[choice]
 						if(!load_character(choice))
