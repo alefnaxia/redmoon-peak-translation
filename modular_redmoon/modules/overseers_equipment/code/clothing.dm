@@ -23,7 +23,7 @@
 	return
 
 /obj/item/clothing/suit/roguetown/armor/plate/scale/inqcoat/overseer/attackby(obj/item/W, mob/living/user, params)
-	if(istype(W, /obj/item/clothing/suit/roguetown/armor/plate/half/fluted/ornate))
+	if(istype(W, /obj/item/clothing/suit/roguetown/armor/plate/fluted/ornate))
 		user.visible_message(span_warning("[user] starts to fit [W] inside the [src]."))
 		if(do_after(user, 12 SECONDS))
 			var/obj/item/clothing/suit/roguetown/armor/plate/scale/inqcoat/overseer/armored/P = new /obj/item/clothing/suit/roguetown/armor/plate/scale/inqcoat/overseer/armored(get_turf(src.loc))
