@@ -8,7 +8,7 @@ SUBSYSTEM_DEF(icon_smooth)
 	var/list/deferred = list()
 
 /datum/controller/subsystem/icon_smooth/fire()
-	if(!lenght(smooth_queue))
+	if(!length(smooth_queue))
 		return
 
 	var/worked_length = 0
