@@ -89,15 +89,15 @@
 		to_chat(src, span_danger("The Github URL is not set in the server configuration."))
 	return
 
-/client/verb/changelog()
-	set name = "Changelog"
-	set category = "OOC"
-	set hidden = 1
-	src << browse('html/changelog.html', "window=changes;size=675x650")
-	if(prefs.lastchangelog != GLOB.changelog_hash)
-		prefs.lastchangelog = GLOB.changelog_hash
-		prefs.save_preferences()
-		winset(src, "infowindow.changelog", "font-style=;")
+// /client/verb/changelog()
+// 	set name = "Changelog"
+// 	set category = "OOC"
+// 	set hidden = 1
+// 	src << browse('html/changelog.html', "window=changes;size=675x650")  // ! REDMOON TMP
+// 	if(prefs.lastchangelog != GLOB.changelog_hash)
+// 		prefs.lastchangelog = GLOB.changelog_hash
+// 		prefs.save_preferences()
+// 		winset(src, "infowindow.changelog", "font-style=;")
 
 /client/verb/recent_changelog()
 	set name = "Recent Changes"
