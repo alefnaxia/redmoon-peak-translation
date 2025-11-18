@@ -1,0 +1,6 @@
+2025-11-18:
+  nauticall:
+  - rscadd: Added or modified descriptions to several items lacking one.
+  - qol: Seeds now have additional text denoting how to smash them into seeds.
+  - qol: Flints, doors, bottles, and surgical tools now have more information on otherwise-strange
+      behaviors they might have.
