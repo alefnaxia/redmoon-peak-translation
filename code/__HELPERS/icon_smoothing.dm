@@ -112,13 +112,13 @@
 
 //do not use, use queue_smooth(atom)
 /proc/smooth_icon(atom/A)
-	if(!A || !A.smooth)
-		return
-	A.smooth &= ~SMOOTH_QUEUED
-	if (!A.z)
-		return
 	if(QDELETED(A))
 		return
+
+	if(!A.smooth)
+		return
+
+	A.smooth &= ~SMOOTH_QUEUED
 	if(A.smooth & (SMOOTH_TRUE | SMOOTH_MORE))
 		var/adjacencies = calculate_adjacencies(A)
 
@@ -385,8 +385,7 @@
 	if(!A.smooth || A.smooth & SMOOTH_QUEUED)
 		return
 
-	SSicon_smooth.smooth_queue += A
-	SSicon_smooth.can_fire = 1
+	SSicon_smooth.smooth_queue |= A
 	A.smooth |= SMOOTH_QUEUED
 
 
